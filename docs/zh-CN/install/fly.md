@@ -64,7 +64,7 @@ primary_region = "iad"
   NODE_OPTIONS = "--max-old-space-size=1536"
 
 [processes]
-  app = "node dist/index.js gateway --allow-unconfigured --port 3000 --bind lan"
+  app = "node openclaw.mjs gateway --allow-unconfigured --port 3000 --bind lan"
 
 [http_service]
   internal_port = 3000
@@ -351,10 +351,10 @@ fly logs
 fly machines list
 
 # Update command
-fly machine update <machine-id> --command "node dist/index.js gateway --port 3000 --bind lan" -y
+fly machine update <machine-id> --command "node openclaw.mjs gateway --port 3000 --bind lan" -y
 
 # Or with memory increase
-fly machine update <machine-id> --vm-memory 2048 --command "node dist/index.js gateway --port 3000 --bind lan" -y
+fly machine update <machine-id> --vm-memory 2048 --command "node openclaw.mjs gateway --port 3000 --bind lan" -y
 ```
 
 **注意：** `fly deploy` 后，机器命令可能会重置为 `fly.toml` 中的内容。如果你进行了手动更改，请在部署后重新应用它们。
